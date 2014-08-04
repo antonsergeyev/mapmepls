@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mapmepls</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
+  <script>
+      var params={
+          ws: {
+              url: "<%= request.host %>:3000/websocket"
+          }
+      };
+  </script>
+  <%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?key='+Rails.application.secrets.maps_key+'&sensor=false'%>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
